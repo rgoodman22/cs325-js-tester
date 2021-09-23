@@ -13,3 +13,21 @@ export const listSquares = a => a.map(e => e * e);
 export const listSum = a => a.reduce((prev, cur) => prev + cur, 0);
 
 export const listSquaresSum = a => a.reduce((prev, cur) => prev + cur * cur, 0);
+
+//mapping
+export const subArray = (a, i) => i.map(index => a[index]);
+
+export const getRepeats = a => a.reduce((prev, curr, ind) => (
+    !prev.includes(curr) && a.slice(ind + 1).includes(curr)
+        ? [...prev, curr]
+        : prev), []);
+
+export const over21 = a => a.filter(e => e.age >= 21);
+
+export const makeHtmlList = a => a.reduce((prev, curr, ind) => (
+    prev += ind === 0
+        ? `<ul><li>${curr}</li>`
+        : ind === a.length - 1
+            ? `<li>${curr}</li></ul>`
+            : `<li>${curr}</li>`
+), '')
